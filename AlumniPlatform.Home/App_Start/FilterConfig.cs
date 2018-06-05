@@ -1,0 +1,14 @@
+﻿using AlumniPlatform.Home.Models;
+using System.Web;
+using System.Web.Mvc;
+
+namespace AlumniPlatform.Home
+{
+    public class FilterConfig
+    {
+        public static void RegisterGlobalFilters(GlobalFilterCollection filters)
+        {
+            filters.Add(new MyExceptionFilterAttribute());
+        }
+    }
+}

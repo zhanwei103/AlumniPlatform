@@ -1,0 +1,125 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!-- BEGIN META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="黑白">
+    <!-- END META -->
+
+    <!-- BEGIN SHORTCUT ICON -->
+    <link rel="shortcut icon" href="~/Images/logo.png">
+    <!-- END SHORTCUT ICON -->
+    <title>哈理工校友管理平台
+    </title>
+    <!-- BEGIN STYLESHEET-->
+    <link href="~/Content/admin/css/bootstrap.min.css" rel="stylesheet">
+    <!-- BOOTSTRAP CSS -->
+    <link href="~/Content/admin/css/bootstrap-reset.css" rel="stylesheet">
+    <!-- BOOTSTRAP CSS -->
+    <link href="~/Content/admin/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- FONT AWESOME ICON CSS -->
+    <link href="~/Content/admin/css/style.css" rel="stylesheet">
+    <!-- THEME BASIC CSS -->
+    <link href="~/Content/admin/css/style-responsive.css" rel="stylesheet">
+    <!-- THEME RESPONSIVE CSS -->
+
+    <!-- END STYLESHEET-->
+</head>
+<body onkeydown="BindEnter(event)"  class="login-screen">
+    <!-- BEGIN SECTION -->
+    <div class="container">
+        <div class="form-signin">
+            <h2 class="form-signin-heading">校友管理平台
+            </h2>
+            <!-- LOGIN WRAPPER  -->
+            <div class="login-wrap">
+                <input type="text" id="userId" class="form-control" placeholder="用户名" autofocus>
+                <input type="password" id="password" class="form-control" placeholder="登录密码">
+
+                <button id="login" class="btn btn-lg btn-login btn-block" type="submit" onclick="checklogin();">
+                    确定
+                </button>
+                <div class="registration">
+                    您还没有登录账号吗?
+            <a class="" href="/Account/Register">去注册
+            </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">信息提示</h4>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- END SECTION -->
+    <!-- BEGIN JS -->
+    <script src="~/Content/admin/js/jquery.js"></script>
+    <!-- BASIC JQUERY LIB. JS -->
+    <script src="~/Content/admin/js/bootstrap.min.js"></script>
+    <!-- BOOTSTRAP JS -->
+    <!-- END JS -->
+    <script src="~/Scripts/common.js"></script>
+
+    <script>
+        //判定是不是顶级页面
+        if (self.location == top.location) {
+            //是顶级了
+        }
+        else {
+            //还不是
+            top.location.href = "/Account/Login";
+        }
+        function checklogin() {
+            var login = $("#userId").val();
+            var pwd = $("#password").val();
+
+            var data = { userId: login, password: pwd };
+
+            $.post("/Account/CheckLogin", data, operateCallBack);
+        }
+
+        function operateCallBack(data) {
+            console.log(data);
+            if (data.IsSuccess) {
+                window.location.href = "/Admin/Index";
+            }
+            else {
+                Alert(data.Message);
+                //window.location.href = "/Account/Login";
+            }
+        }
+
+        function BindEnter(obj) {
+            //使用document.getElementById获取到按钮对象
+            var button = document.getElementById('login');
+            if (obj.keyCode == 13) {
+                button.click();
+                obj.returnValue = false;
+            }
+        }
+
+        $(function () {
+            document.getElementById("userId").focus();
+        });
+    </script>
+</body>
+</html>

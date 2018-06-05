@@ -1,0 +1,313 @@
+﻿body {
+    margin: 0px;
+    font-size: 36px;
+    font-family: "Microsoft YaHei", Verdana, Helvetica, Sans-Serif;
+    color: #333333;
+   background-color: #EBEBEB;
+    width: 100%;
+    height: 100%;
+}
+
+header, footer, nav, section {
+    display: block;
+}
+
+a {
+    color: #333333;
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: none;
+    }
+
+.top {
+    top: 0px;
+    left: 0px;
+    font-size: 18px;
+    height: 40px;
+    width: 100%;
+    position: fixed;
+    background: #33263A;
+    z-index: 9;
+}
+
+.title {
+    height: 40px;
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+}
+
+.top span {
+    margin: 5px;
+    width: 30px;
+    height: 30px;
+    float: left;
+    background: url("../Images/back_arrow.png") no-repeat;
+    background-size: contain;
+}
+
+.content {
+    width: 100%;
+    height: calc(100%-106);
+    margin: 40px 0px 66px 0px;
+    font-size: 0.85rem;
+    background-color: #EBEBEB;
+    color: #333333;
+}
+
+footer {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    z-index: 9;
+    width: 100%;
+    border-top: 1px solid #bebebe;
+    background-color: #EBEBEB;
+    font-size: 1rem;
+}
+
+    footer span {
+        width:25%;
+        float: left;
+        padding-top: 30px;
+        text-align: center;
+        margin: 5px 0px;
+    }
+
+        footer span:nth-child(1) {
+            background: url("../Images/child1.png") no-repeat center 0px;
+            background-size: auto 55%;
+        }
+
+            footer span:nth-child(1).cur {
+                background: url("../Images/child1_cur.png") no-repeat center 0px;
+                background-size: auto 55%;
+                color: #2e96e6;
+            }
+
+        footer span:nth-child(2) {
+            background: url("../Images/child2.png") no-repeat center 0px;
+            background-size: auto 55%;
+        }
+
+            footer span:nth-child(2).cur {
+                background: url("../Images/child2_cur.png") no-repeat center 0px;
+                background-size: auto 55%;
+                color: #2e96e6;
+            }
+
+        footer span:nth-child(3) {
+            background: url("../Images/child3.png") no-repeat center 0px;
+            background-size: auto 55%;
+        }
+
+            footer span:nth-child(3).cur {
+                background: url("../Images/child3_cur.png") no-repeat center 0px;
+                background-size: auto 55%;
+                color: #2e96e6;
+            }
+
+        footer span:nth-child(4) {
+            background: url("../Images/child4.png") no-repeat center 0px;
+            background-size: auto 55%;
+        }
+
+            footer span:nth-child(4).cur {
+                background: url("../Images/child4_cur.png") no-repeat center 0px;
+                background-size: auto 55%;
+                color: #2e96e6;
+            }
+
+/*主页*/
+.img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    width: 100%;
+    height: 10rem;
+}
+
+.images-2 {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+
+/*--发现页面--*/
+.nav {
+    background-color: #fff;
+    margin-bottom: 0.555rem;
+}
+
+.navigation {
+    margin:0.5rem auto;
+    height: 4rem;
+    text-align: center;
+    padding-top: 3rem;
+    font-size:1rem;
+}
+
+    .navigation.hotel {
+        background: url("../Images/hotel.png") no-repeat center 0px;
+        background-size: auto 70%;
+    }
+
+    .navigation.food {
+        background: url("../Images/food.png") no-repeat center 0px;
+        background-size: auto 70%;
+    }
+
+    .navigation.customs {
+        background: url("../Images/customs.png") no-repeat center 0px;
+        background-size: auto 70%;
+    }
+
+    .navigation.near {
+        background: url("../Images/near.png") no-repeat center 0px;
+        background-size: auto 70%;
+    }
+
+/*商品预览模块*/
+.preview {
+    background-color: #fff;
+    margin-bottom: 0.555rem;
+}
+
+.subtitle {
+    padding-left: 10px;
+    width: 100%;
+    height: 1.2rem;
+    padding-top: 0.1rem;
+    font-size: 1rem;
+    margin-bottom: 0.255rem;
+}
+
+    .subtitle span {
+        padding-top: 5px;
+        font-size: 0.85rem;
+        float: right;
+        color: #777777;
+    }
+
+.images {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.describe {
+    background: #000;
+    opacity: 0.6;
+    color: #fff;
+    width: 100%;
+    height: 1.8rem;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    padding: 0.5rem 0rem 0rem;
+}
+
+    .describe span {
+        padding-left: 1.5rem;
+        padding-right: 0.5rem;
+        height: 1rem;
+    }
+
+        .describe span:nth-child(1) {
+            padding-left: 0.5rem;
+        }
+
+        .describe span:nth-child(2) {
+            background: url("../Images/liulan.png") no-repeat left 0.1rem;
+            background-size: auto 80%;
+            text-indent: 0.5rem;
+            float: right;
+        }
+
+        .describe span:nth-child(3) {
+            background: url("../Images/pinglun.png") no-repeat left 0px;
+            background-size: contain;
+            float: right;
+        }
+
+        .describe span:nth-child(4) {
+            background: url("../Images/zan.png") no-repeat left 0px;
+            background-size: contain;
+            float: right;
+        }
+
+
+/*社区*/
+.center {
+    text-align: center;
+    font-size: 1rem;
+}
+
+.author {
+    height: 1.5rem;
+    font-size: 1rem;
+}
+
+    .author > img {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+.summary {
+    font-size: 0.85rem;
+    text-indent: 1.2rem;
+    color: #777777;
+}
+
+.images-3 {
+    width: 100%;
+    height: auto;
+}
+
+/*我*/
+.header{
+	background-color:#33263A;
+	color:white;
+	text-align:center;
+}
+.header span{
+	display:block;
+	text-align:center;
+	font-size:1rem;
+	padding:0.533rem 0rem;
+}
+.header img{
+	background-color:White;
+	width:5.4rem;
+	height:5.4rem;
+	border-radius:2.7rem;
+	margin-top:0.8rem;
+}
+ul,li{
+	list-style:none;
+	margin:0px;
+	padding:0px;
+}
+
+.main{
+	margin-bottom:72px;
+}
+.main ul{
+	margin-top:0.555rem;	
+}
+.main ul li{
+	cursor:pointer;
+	height:2.777rem;
+	background:url("../images/rarrow.png") no-repeat 20.2rem center white;
+}
+.main ul li a{
+	font-size:0.85rem;
+	height:1.111rem;
+	display:inline-block;
+	margin:0.833rem 0rem 0rem 0.255rem;
+	text-indent:1.5rem;
+}
+
+.main ul li div{
+	float:right;
+}

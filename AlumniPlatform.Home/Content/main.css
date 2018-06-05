@@ -1,0 +1,67 @@
+
+html, body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #fafafa;
+    font-family: "Microsoft YaHei";
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    font-size: 36px;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    margin: 0rem;
+    padding: 0rem;
+}
+
+ul, li {
+    list-style: none;
+    margin: 0rem;
+    padding: 0rem;
+}
+
+.main {
+    width: 22.3rem;
+    margin: 0rem auto;
+    overflow: hidden;
+}
+
+    .main.home {
+        background: url("../Images/bg.png") no-repeat #EBEBEB top center;
+        background-size: 100% 100%;
+        text-align: center;
+        height: 100%;
+    }
+
+.subtitle {
+    font-family: "楷体";
+    font-size: 0.85rem;
+    color: #534B59;
+    margin: 3rem;
+}
+
+    .subtitle .ci {
+        float: left;
+        margin: 0.25rem;
+    }
+
+        .subtitle .ci.cur {
+            display: block;
+        }
+
+.time {
+    position:absolute;
+    padding:5px;
+    bottom:30px;
+    right:50px;
+    font-size:0.75rem;
+    border:1px solid;
+    border-radius:5px;
+     font-family: "楷体";
+    color:#534B59;
+}

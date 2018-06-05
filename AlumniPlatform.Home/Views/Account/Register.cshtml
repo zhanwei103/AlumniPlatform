@@ -1,0 +1,278 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "用户注册";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- BEGIN META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="詹伟">
+    <!-- END META -->
+
+    <!-- BEGIN SHORTCUT ICON -->
+    <link rel="shortcut icon" href="~/Images/logo.png">
+    <!-- END SHORTCUT ICON -->
+    <title>哈理工校友管理平台
+    </title>
+    <!-- BEGIN STYLESHEET-->
+    <link href="~/Content/admin/css/bootstrap.min.css" rel="stylesheet">
+    <!-- BOOTSTRAP CSS -->
+    <link href="~/Content/admin/css/bootstrap-reset.css" rel="stylesheet">
+    <!-- BOOTSTRAP CSS -->
+    <link href="~/Content/admin/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- FONT AWESOME ICON CSS -->
+    <link href="~/Content/admin/css/style.css" rel="stylesheet">
+    <!-- THEME BASIC CSS -->
+    <link href="~/Content/admin/css/style-responsive.css" rel="stylesheet">
+    <!-- THEME RESPONSIVE CSS -->
+
+    <!-- END STYLESHEET-->
+</head>
+<body class="login-screen">
+    <!-- BEGIN SECTION -->
+    <div class="container">
+        <div class="col-lg-2">
+        </div>
+        <div class="col-lg-8">
+            <h2 class="form-signin-heading">校友管理平台
+            </h2>
+            <section class="panel">
+                <!-- LOGIN WRAPPER  -->
+                <div class="login-wrap">
+                    <form class="form-horizontal" role="form" id="form1">
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">用户名</label>
+                            <div class="col-lg-10">
+                                <input type="text" name="userid" class="form-control" id="userId" placeholder="请输入6~20位英文字母、数字!">
+                                @*<p class="help-block">请输入6~20位英文字母、数字作为登入名。</p>*@
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword1" class="col-lg-2 col-sm-2 control-label">密码</label>
+                            <div class="col-lg-10">
+                                <input type="password" name="password" class="form-control" id="pwd1" placeholder="请输入6~20位英文字母、数字!">
+                                @*<p class="help-block">请输入6~20位英文字母、数字作为密码。</p>*@
+                            </div>
+                        </div>
+                        <div id="password" class="form-group">
+                            <label for="inputPassword2" class="col-lg-2 col-sm-2 control-label">密码确认</label>
+                            <div class="col-lg-10">
+                                <input type="password" name="password" class="form-control" id="pwd2" placeholder="两次密码输入需保持一致!">
+                                @*<p class="help-block">两次密码输入需保持一致。</p>*@
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            <section class="panel">
+                <header class="panel-heading">
+                    <span class="label label-primary">基本信息</span>
+                </header>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form" id="form-test">
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">姓名</label>
+                            <div class="col-lg-10">
+                                <input type="text" name="text" class="form-control" id="realName" placeholder="请输入您的真实姓名，我们会进行审核的哦!">
+                                @*<p class="help-block">请输入您的真实姓名，我们会进行审核的哦!</p>*@
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">手机号码</label>
+                            <div class="col-lg-10">
+                                <input type="text" name="phone" class="form-control" id="phone" placeholder="请输入真实手机号码!">
+                                @*<p class="help-block">请输入真实手机号码，以便管理员联系您!</p>*@
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword1" class="col-lg-2 col-sm-2 control-label">电子邮件</label>
+                            <div class="col-lg-10">
+                                <input type="email" name="email" class="form-control" id="email" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <p class="help-block">
+                                已经拥有账号，直接 <a class="badge bg-success" href="/Account/Login">返回</a> 登入页面!
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                                <button type="button" class="btn btn-primary" id="submit">
+                                    提交
+                                </button>
+
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+
+            </section>
+
+        </div>
+    </div>
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">信息提示</h4>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- END SECTION -->
+    <!-- BEGIN JS -->
+    <script src="~/Content/admin/js/jquery.js"></script>
+    <!-- BASIC JQUERY LIB. JS -->
+    <script src="~/Content/admin/js/bootstrap.min.js"></script>
+    <!-- BOOTSTRAP JS -->
+    <!-- END JS -->
+    <script src="~/Scripts/common.js"></script>
+
+    <link href="~/bootstrap/dist/css/bootstrapValidator.min.css" rel="stylesheet" />
+    <script src="~/bootstrap/dist/js/bootstrapValidator.min.js"></script>
+
+    <script>
+
+        $('#submit').click(function () {
+
+            var pwd1 = $("#pwd1").val();
+            var pwd2 = $("#pwd2").val();
+            if (pwd1 != pwd2) {//两次密码不一致
+                Alert("两次密码不一致!");
+                $('#password').addClass('has-error');
+                return;
+            }
+
+            var data = {
+                userId: $("#userId").val(),
+                password: pwd1,
+                phone: $("#phone").val(),
+                email: $("#email").val(),
+                realname: $("#realName").val()
+            };
+
+            $("#form-test,#form1").bootstrapValidator('validate');//提交验证  
+            if ($("#form-test").data('bootstrapValidator').isValid()) {//获取验证结果，如果成功，执行下面代码 
+
+                $.post("/Account/RegisterUser", data, operateCallBack);
+            }
+            else {
+                //Alert("没有通过验证!");
+            }
+
+        });
+
+        //判断两次密码是否一致
+        $('#pwd1,#pwd2').change(function () {
+            var pwd1 = $("#pwd1").val();
+            var pwd2 = $("#pwd2").val();
+            if (pwd1 != pwd2) {//两次密码不一致
+                $('#password').addClass('has-error');
+
+            }
+            else {
+                $('#password').removeClass('has-error');
+            }
+        })
+
+        function operateCallBack(data) {
+            console.log(data);
+            if (data.IsSuccess) {
+                Alert("注册成功，请联系管理员审核哦!5秒后页面自动跳转到登录界面!!!");
+                setTimeout(function () {
+                    location.href = "/Account/Login";
+                }, 5000)
+            }
+            else {
+                Alert(data.Message);
+            }
+        }
+
+        $("#form-test,#form1").bootstrapValidator({
+            live: 'enable',//验证时机，enabled是内容有变化就验证（默认），disabled和submitted是提交再验证  
+            excluded: [':disabled', ':hidden', ':not(:visible)'],//排除无需验证的控件，比如被禁用的或者被隐藏的  
+            message: '通用的验证失败消息',//好像从来没出现过  
+            feedbackIcons: {//根据验证结果显示的各种图标  
+                valid: 'fa fa-check',
+                invalid: 'fa fa-times',
+                validating: 'fa fa-refresh'
+            },
+            fields: {
+                text: {
+                    validators: {
+                        notEmpty: {//检测非空,radio也可用  
+                            message: '必填项未填写，请输入.'
+                        }
+                    }
+                },
+                userid: {
+                    validators: {
+                        notEmpty: {//检测非空,radio也可用  
+                            message: '必填项未填写，请输入.'
+                        },
+                        stringLength: {//检测长度
+                            min: 6,
+                            max: 30,
+                            message: '长度必须在6-30之间'
+                        },
+                        regexp: {//正则验证
+                            regexp: /^[a-zA-Z0-9_\.]+$/,
+                            message: '所输入的字符不符要求'
+                        },
+                    }
+                },
+                password: {
+                    validators: {
+                        notEmpty: {//检测非空,radio也可用  
+                            message: '必填项未填写，请输入.'
+                        },
+                        stringLength: {//检测长度
+                            min: 6,
+                            max: 30,
+                            message: '长度必须在6-30之间'
+                        },
+                        regexp: {//正则验证
+                            regexp: /^[a-zA-Z0-9_\.]+$/,
+                            message: '所输入的字符不符要求'
+                        },
+                    }
+                },
+                phone: {
+                    validators: {
+                        notEmpty: {//检测非空,radio也可用  
+                            message: '必填项未填写，请输入.'
+                        },
+                        regexp: {//正则验证  
+                            regexp: /^1[3|4|5|8][0-9]\d{8}$/,
+                            message: '所输入的手机号码不符要求'
+                        }
+                    }
+                },
+                email: {
+                    validators: {
+                        notEmpty: {//检测非空,radio也可用  
+                            message: '必填项未填写，请输入.'
+                        },
+                        emailAddress: {//验证email地址
+                            message: '不是正确的email地址'
+                        },
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>

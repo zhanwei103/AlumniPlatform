@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.Title = "指示板";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--dashboard calendar-->
+<link href="~/Content/admin/css/clndr.css" rel="stylesheet">
+<!-- CALENDER CSS -->
+<!-- BEGIN WRAPPER  -->
+<section class="wrapper">
+    <!-- BEGIN ROW  -->
+    <div class="row state-overview">
+        <div class="col-lg-3 col-sm-6">
+            <section class="panel">
+                <div class="symbol">
+                    <i class="fa fa-male blue"></i>
+                </div>
+                <div class="value">
+                    <h1 id="male">0
+                    </h1>
+                    <p>
+                        男生
+                    </p>
+                </div>
+            </section>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <section class="panel">
+                <div class="symbol">
+                    <i class="fa fa-female red"></i>
+                </div>
+                <div class="value">
+                    <h1 id="female">0
+                    </h1>
+                    <p>
+                        女生
+                    </p>
+                </div>
+            </section>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <section class="panel">
+                <div class="symbol">
+                    <i class="fa fa-users yellow"></i>
+                </div>
+                <div class="value">
+                    <h1 id="total">0
+                    </h1>
+                    <p>
+                        总人数
+                    </p>
+                </div>
+            </section>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <section class="panel">
+                <div class="symbol">
+                    <i class="fa fa-tags purple"></i>
+                </div>
+                <div class="value">
+                    <h1 class="">0
+                    </h1>
+                    <p>
+                        平均年龄
+                    </p>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- END ROW  -->
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="calendar-block ">
+                        <div class="cal1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END WRAPPER  -->
+<script src="~/Content/admin/js/calendar/clndr.js"></script>
+<!-- CALENDER JS -->
+<script src="~/Content/admin/js/calendar/evnt.calendar.init.js"></script>
+<!-- CALENDER EVENT JS -->
+<script src="~/Content/admin/js/calendar/moment-2.2.1.js"></script>
+<!-- CALENDER MOMENT JS -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+<!-- UNDERSCORE JS -->
+
+<script>
+  
+    moment.lang('zh-cn');
+
+    $(function () {
+
+        $.get("GetDashBorad", null, function (msg) {
+            $("#male").html(msg.Male);
+            $("#female").html(msg.Female);
+            $("#total").html(msg.Total);
+            //console.log(msg);
+        })
+
+    })
+</script>

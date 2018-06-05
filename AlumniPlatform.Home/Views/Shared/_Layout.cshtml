@@ -1,0 +1,339 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <!-- BEGIN STYLESHEET-->
+    <link rel="shortcut icon" href="~/Images/logo.png">
+    <link href="~/Content/admin/css/bootstrap.min.css" rel="stylesheet">
+    <!-- BOOTSTRAP CSS -->
+    <link href="~/Content/admin/css/bootstrap-reset.css" rel="stylesheet">
+
+    <!-- BOOTSTRAP CSS -->
+    <link href="~/Content/admin/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- FONT AWESOME ICON CSS -->
+    <link href="~/Content/admin/css/style.css" rel="stylesheet">
+    <!-- THEME BASIC CSS -->
+    <link href="~/Content/admin/css/style-responsive.css" rel="stylesheet">
+    <!-- THEME RESPONSIVE CSS -->
+    @*<link href="~/Content/admin/assets/morris.js-0.4.3/morris.css" rel="stylesheet">*@
+    <!-- MORRIS CHART CSS -->
+    <!--dashboard calendar-->
+    @*<link href="~/Content/admin/css/clndr.css" rel="stylesheet">*@
+    <!-- CALENDER CSS -->
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+
+</head>
+<body>
+    <!-- BEGIN SECTION -->
+    <section id="container">
+        <!-- BEGIN HEADER -->
+        <header class="header white-bg">
+            <!-- SIDEBAR TOGGLE BUTTON -->
+            <div class="sidebar-toggle-box">
+                <div data-placement="right" class="fa fa-bars tooltips">
+                </div>
+            </div>
+            <!-- SIDEBAR TOGGLE BUTTON  END-->
+            <a href="/Admin/Index" class="logo">哈理工
+                <span>校友会</span>
+            </a>
+
+            <!-- START HEADER  NAV -->
+
+            <!-- END HEADER NAV -->
+
+            <!-- START USER LOGIN DROPDOWN  -->
+
+            <div class="top-nav ">
+                <ul class="nav pull-right top-menu">
+                    @* <li>
+                        <input type="text" class="form-control search" placeholder="搜一搜...">
+                    </li>*@
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <img alt="" src="~/Content/admin/img/avatar1_small.jpg">
+                            <span class="username"></span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu extended logout">
+                            <li class="log-arrow-up"></li>
+                            <li>
+                                <a href="javascript:modify();">
+                                    <i class="fa fa-key"></i>
+                                    修改密码
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:logout();">
+                                    <i class="fa fa-sign-out"></i>
+                                    退出
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- END USER LOGIN DROPDOWN  -->
+        </header>
+        <!-- END HEADER -->
+        <!-- BEGIN SIDEBAR -->
+        <aside>
+            <div id="sidebar" class="nav-collapse">
+                <ul class="sidebar-menu" id="nav-accordion">
+                    <li>
+                        <a href="/Admin/Index" class="active">
+                            <i class="fa fa-dashboard"></i>
+                            <span>指示板
+                            </span>
+                        </a>
+                    </li>
+
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-book"></i>
+                            <span>校友管理</span>
+                            <span class="label label-info span-sidebar"></span>
+                        </a>
+                        <ul class="sub">
+
+                            <li>
+                                <a href="/Alumni/List">校友列表
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Alumni/Edit">增加校友
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-tasks"></i>
+                            <span>系统管理
+                            </span>
+                            <span class="label label-info span-sidebar"></span>
+                        </a>
+
+                        <ul class="sub">
+                            <li>
+                                <a href="/Admin/UserList">用户管理
+                                </a>
+                            </li>
+                            @*  <li>
+                                <a href="/Admin/Report">报表统计
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Admin/LogInfo">错误日志
+                                </a>
+                            </li>*@
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <!-- END SIDEBAR -->
+        <!-- BEGIN MAIN CONTENT -->
+
+        <section id="main-content">
+            @RenderBody()
+        </section>
+        <!-- END MAIN CONTENT -->
+        <!-- BEGIN FOOTER -->
+        <footer class="site-footer">
+            <div class="text-center">
+                2016 &copy; 黑白科技 
+          <a href="/Admin/Index" target="_blank">哈理工校友会</a>
+                
+            </div>
+        </footer>
+        <!-- END  FOOTER -->
+    </section>
+
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">信息提示</h4>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    @*<button class="btn btn-danger" type="button">确定</button>*@
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="myPwdModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                    <h4 class="modal-title">修改密码</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form" id="form1">
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">用户名</label>
+                            <div class="col-lg-10">
+                                <input type="text" name="userid" class="form-control " id="muserId" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword1" class="col-lg-2 col-sm-2 control-label">旧密码</label>
+                            <div class="col-lg-10">
+                                <input type="password" name="password" class="form-control" id="oldpwd" placeholder="请输入旧密码!">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword1" class="col-lg-2 col-sm-2 control-label">密码</label>
+                            <div class="col-lg-10">
+                                <input type="password" name="password" class="form-control" id="pwd1" placeholder="请输入6~20位英文字母、数字!">
+                            </div>
+                        </div>
+                        <div id="password" class="form-group">
+                            <label for="inputPassword2" class="col-lg-2 col-sm-2 control-label">密码确认</label>
+                            <div class="col-lg-10">
+                                <input type="password" name="password" class="form-control" id="pwd2">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                                <button type="button" class="btn btn-primary" id="msave">提交</button>
+                                <button type="button" class="btn btn-danger" id="mcancel">取消</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="~/Scripts/common.js"></script>
+    <!-- BASIC JQUERY 1.8.3 LIB. JS -->
+    <script src="~/Content/admin/js/bootstrap.min.js"></script>
+    <!-- BOOTSTRAP JS -->
+    <script src="~/Content/admin/js/jquery.dcjqaccordion.2.7.js"></script>
+    <!-- ACCORDIN JS -->
+    <script src="~/Content/admin/js/jquery.scrollTo.min.js"></script>
+    <!-- SCROLLTO JS -->
+    <script src="~/Content/admin/js/jquery.nicescroll.js"></script>
+    <!-- NICESCROLL JS -->
+    <script src="~/Content/admin/js/respond.min.js"></script>
+
+    <!-- BOOTSTRAP DATEPICKER JS  -->
+    <!-- RESPOND JS -->
+    @*<script src="~/Content/admin/js/jquery.sparkline.js"></script>*@
+    <!-- SPARKLINE JS -->
+    @*<script src="~/Content/admin/js/sparkline-chart.js"></script>*@
+    <!-- SPARKLINE CHART JS -->
+    <script src="~/Content/admin/js/common-scripts.js"></script>
+    <!-- BASIC COMMON JS -->
+    @*<script src="~/Content/admin/js/count.js"></script>*@
+    <!-- COUNT JS -->
+    <!--Morris-->
+    @*<script src="~/Content/admin/assets/morris.js-0.4.3/morris.min.js"></script>*@
+    <!-- MORRIS JS -->
+    @*<script src="~/Content/admin/assets/morris.js-0.4.3/raphael-min.js"></script>*@
+    <!-- MORRIS  JS -->
+
+    <!--Calendar-->
+    @*<script src="~/Content/admin/js/calendar/clndr.js"></script>*@
+    <!-- CALENDER JS -->
+    @*<script src="~/Content/admin/js/calendar/evnt.calendar.init.js"></script>*@
+    <!-- CALENDER EVENT JS -->
+    @*<script src="~/Content/admin/js/calendar/moment-2.2.1.js"></script>*@
+    <!-- CALENDER MOMENT JS -->
+    @*<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>*@
+    <!-- UNDERSCORE JS -->
+    @*<script src="~/Content/admin/assets/jquery-knob/js/jquery.knob.js"></script>*@
+    <!-- JQUERY KNOB JS -->
+    <script src="~/Scripts/jquery.cookie.js"></script>
+    <script>
+
+        var page = '@ViewData["CurrentPage"]';
+        var userId = '@Session["CurrentUser"].ToString()';
+        //用户登出
+        function logout() {
+            top.location.href = "/Account/Logout";
+        }
+        //修改密码
+        function modify() {
+            if (userId === "") {
+                location.href = "/Account/Login";
+                return;
+            }
+            $('#muserId').val(userId);
+            $("#myPwdModal").modal('show');
+        }
+
+        $('#mcancel').click(function () {
+            $('#myPwdModal').modal('hide');
+            $("muserId").val("");
+            $("oldpwd").val("");
+            $("pwd1").val("");
+            $("pwd2").val("");
+        })
+
+        $('#msave').click(function () {
+            var pwd1 = $("#pwd1").val();
+            var pwd2 = $("#pwd2").val();
+            if (pwd1.length < 6) {
+                Alert("密码长度不够,请输入6~20位英文字母、数字!");
+                return;
+            }
+            if (pwd1 != pwd2) {//两次密码不一致
+                Alert("两次密码不一致!");
+                $('#password').addClass('has-error');
+                return;
+            }
+
+            var data = {
+                userId: userId,
+                oldPwd: $("#oldpwd").val(),
+                newPwd: pwd1
+            };
+            $.post("/Admin/ModifyPassword", data, function (msg) {
+                if (msg.IsSuccess) {
+                    $('#myPwdModal').modal('hide');
+                    Alert("密码修改成功!");
+                    //清空
+                    $("muserId").val("");
+                    $("oldpwd").val("");
+                    $("pwd1").val("");
+                    $("pwd2").val("");
+                }
+                else {
+                    Alert(msg.Message);
+                }
+            });
+
+        })
+        //获取菜单
+        function initMenu() {
+            var menu = $('.sub').find("li a");
+            menu.each(function () {
+                var m = $(this).attr("href");
+                if (m === page) {
+                    $(this).parents('.sub-menu').children("a").addClass('active')
+                    $(this).parents('.sub').css("display", "block");
+                }
+            });
+        }
+
+        $(function () {
+            initMenu();
+            var userId = '@Session["CurrentUser"].ToString()';
+            $('.username').html(userId);
+        });
+    </script>
+    <!-- END JS -->
+</body>
+</html>

@@ -1,0 +1,260 @@
+﻿body {
+    margin: 0px;
+    font-size: 36px;
+    font-family: "Microsoft YaHei", Verdana, Helvetica, Sans-Serif;
+    color: #333333;
+    background-color: #EBEBEB;
+    width: 100%;
+    height: 100%;
+}
+
+header, footer, nav, section {
+    display: block;
+}
+
+a {
+    color: #333333;
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: none;
+    }
+
+.top {
+    top: 0px;
+    left: 0px;
+    font-size: 18px;
+    height: 40px;
+    width: 100%;
+    position: fixed;
+    background: #33263A;
+    z-index: 9;
+}
+
+.title {
+    height: 40px;
+    margin-top: 10px;
+    color: white;
+    text-align: left;
+}
+
+.top span {
+    margin: 7px;
+    width: 25px;
+    height: 25px;
+    float: left;
+    background: url("../Images/back_arrow.png") no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.content {
+    width: 100%;
+    height: calc(100%-40px);
+    margin: 40px 0px 66px 0px;
+    font-size: 0.85rem;
+    background-color: #EBEBEB;
+    color: #333333;
+}
+
+.background {
+    background-color: #fff;
+    margin-bottom: 0.555rem;
+}
+
+footer {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    z-index: 9;
+    width: 100%;
+    border-top: 1px solid #bebebe;
+    background-color: #EBEBEB;
+    font-size: 1rem;
+}
+
+    footer span {
+        width: 25%;
+        float: left;
+        padding-top: 30px;
+        text-align: center;
+        margin: 5px 0px;
+    }
+
+        footer span:nth-child(1) {
+            background: url("../Images/child1.png") no-repeat center 0px;
+            background-size: auto 55%;
+        }
+
+            footer span:nth-child(1).cur {
+                background: url("../Images/child1_cur.png") no-repeat center 0px;
+                background-size: auto 55%;
+                color: #2e96e6;
+            }
+
+        footer span:nth-child(2) {
+            background: url("../Images/child2.png") no-repeat center 0px;
+            background-size: auto 55%;
+        }
+
+            footer span:nth-child(2).cur {
+                background: url("../Images/child2_cur.png") no-repeat center 0px;
+                background-size: auto 55%;
+                color: #2e96e6;
+            }
+
+        footer span:nth-child(3) {
+            background: url("../Images/child3.png") no-repeat center 0px;
+            background-size: auto 55%;
+        }
+
+            footer span:nth-child(3).cur {
+                background: url("../Images/child3_cur.png") no-repeat center 0px;
+                background-size: auto 55%;
+                color: #2e96e6;
+            }
+
+        footer span:nth-child(4) {
+            background: url("../Images/child4.png") no-repeat center 0px;
+            background-size: auto 55%;
+        }
+
+            footer span:nth-child(4).cur {
+                background: url("../Images/child4_cur.png") no-repeat center 0px;
+                background-size: auto 55%;
+                color: #2e96e6;
+            }
+
+/*风景介绍*/
+.subtitle {
+    padding-left: 10px;
+    width: 100%;
+    height: 1.2rem;
+    padding-top: 0.1rem;
+    font-size: 1rem;
+    margin-bottom: 0.255rem;
+}
+
+.caption {
+    padding-bottom: 5px;
+    font-size: 0.75rem;
+    color: #777777;
+    height: 1rem;
+}
+
+    .caption .author {
+        float: left;
+    }
+
+    .caption .time {
+        float: right;
+    }
+
+.details {
+    color: #777777;
+}
+
+    .details > p {
+        text-indent: 1.2rem;
+    }
+
+    .details > img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 0.5rem;
+    }
+
+.comments {
+    margin: 1rem 0rem;
+}
+
+.weixin {
+    width: 100%;
+    height: 10rem;
+    padding-top: 8rem;
+    margin: 0rem auto;
+    background: url("../Images/weixin.jpg") no-repeat center 0px;
+    background-size: 8rem;
+}
+
+.comments .overview {
+    height: 1.2rem;
+    background: #EBEBEB;
+}
+
+    .comments .overview span {
+        padding-left: 1.5rem;
+        padding-right: 0.5rem;
+        height: 1rem;
+    }
+
+        .comments .overview span:nth-child(1) {
+            background: url("../Images/liulan1.png") no-repeat left 0.1rem;
+            background-size: auto 80%;
+            text-indent: 0.5rem;
+            float: left;
+        }
+
+        .comments .overview span:nth-child(2) {
+            background: url("../Images/pinglun1.png") no-repeat left 0px;
+            background-size: contain;
+            float: left;
+        }
+
+        .comments .overview span:nth-child(3) {
+            background: url("../Images/zan1.png") no-repeat left 0px;
+            background-size: contain;
+            float: left;
+        }
+
+
+.copy {
+    text-align: center;
+    margin: 1rem 0rem;
+}
+
+
+/*客栈详情*/
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: #fff;
+    cursor: default;
+    background-color: #257ceb;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+}
+
+
+/*附近新闻*/
+.layout {
+    margin: 0.25rem;
+    height: 5rem;
+}
+
+    .layout .left {
+        width: 5rem;
+        height: 5rem;
+        float: left
+    }
+
+.abstract {
+    float: left;
+        height: 5rem;
+        width: 14rem;
+        padding-left:0.36rem;
+}
+
+    .abstract .caption {
+        text-indent:1.6rem;
+        height: 3rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 0.75rem;
+        white-space: pre-wrap;
+    }
+
+.img-rounded > img, .img-rounded a > img {
+    width: 5rem;
+    height: 5rem;
+}

@@ -1,0 +1,210 @@
+﻿@model AlumniPlatform.Logic.Model.AlumniInfo
+
+@{
+    ViewBag.Title = "预览";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="wrapper">
+    <!-- BEGIN ROW  -->
+    <div class="row">
+        <aside class="profile-nav col-lg-3">
+            <section class="panel">
+                <div class="user-heading round">
+                    <a href="#">
+                        @if (Model.Gender == "女")
+                        {
+                            <img src="~/Content/admin/img/avatar/avatar-1.jpg" alt="">
+                        }
+                        else
+                        {
+                            <img src="~/Content/admin/img/avatar/avatar-2.jpg" alt="">
+                        }
+                    </a>
+                    <h1>
+                        @Model.RealName
+                    </h1>
+                    <p>
+                        @Model.Email
+                    </p>
+                </div>
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="active">
+                        <a>
+                            <i class="fa fa-user"></i>
+                            性别
+                            <span class="label label-primary pull-right">
+                                @Model.Gender
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <i class="fa fa-edit"></i>
+                            手机号码
+                             <span class="label label-primary pull-right">
+                                 @Model.Phone
+                             </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <i class="fa fa-calendar"></i>
+                            毕业时间
+                            @if (Model.GraduationDate != null)
+                            {
+                                <span class="label label-primary pull-right">
+                                    @Model.GraduationDate.ToString()
+                                </span>
+                            }
+                        </a>
+                    </li>
+
+                </ul>
+            </section>
+            <section class="panel">
+                <div class="panel-body">
+                    <ul class="p-info">
+                        <li>
+                            <div class="title">
+                                民族
+                            </div>
+                            <div class="desk">
+                                @Model.Nation
+                            </div>
+                        </li>
+                        <li>
+                            <div class="title">
+                                籍贯
+                            </div>
+                            <div class="desk">
+                                @Model.NativePlace
+                            </div>
+                        </li>
+                        <li>
+                            <div class="title">
+                                出生日期
+                            </div>
+                            <div class="desk">
+                                @Model.BirthDate
+                            </div>
+                        </li>
+                        <li>
+                            <div class="title">
+                                婚否
+                            </div>
+                            <div class="desk">
+                                @Model.MaritalStatus
+                            </div>
+                        </li>
+                        <li>
+                            <div class="title">
+                                学历
+                            </div>
+                            <div class="desk">
+                                @Model.MaxDegree
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </aside>
+        <aside class="profile-info col-lg-9">
+            <section class="panel">
+                <div class="panel-body bio-graph-info">
+
+                    <h1>其他基本信息
+                    </h1>
+                    <span class="designation"></span>
+
+                    <ul class="p-info">
+                        <li>
+                            <div class="col-sm-6">
+                                <p>
+                                    <span>工作单位
+                                    </span>
+                                    : @Model.Company
+                                </p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p>
+                                    <span>职务 
+                                    </span>
+                                    : @Model.Position
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class=" col-sm-6">
+                                <p>
+                                    <span>毕业院校
+                                    </span>
+                                    : @Model.GraduatedFrom
+                                </p>
+                            </div>
+                            <div class=" col-sm-6">
+                                <p>
+                                    <span>主修专业
+                                    </span>
+                                    : @Model.Major
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class=" col-sm-6">
+                                <p>
+                                    <span>校友会职务
+                                    </span>
+                                    : @Model.AlumniPosition
+                                </p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p>
+                                    <span>电子邮箱
+                                    </span>
+                                    : <a href="mailto:@Model.Email">@Model.Email</a>
+                                </p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class=" col-sm-6">
+                                <p>
+                                    <span>兴趣爱好
+                                    </span>
+                                    : @Model.Hobby
+                                </p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p>
+                                    <span>联系地址
+                                    </span>
+                                    : @Model.Address
+                                </p>
+                            </div>
+                        </li>
+
+
+                    </ul>
+
+                </div>
+            </section>
+
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="profile-desk">
+                        <h1>备注
+                        </h1>
+
+                        <p class="bio-graph-heading">
+                            @Model.Remark
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+        </aside>
+    </div>
+    <!-- END ROW  -->
+</section>
